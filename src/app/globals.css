@@ -1,26 +1,112 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-sora), ui-sans-serif, system-ui;
+  --font-code: var(--font-code), monospace;
+
+  --color-n-1: #FFFFFF;
+  --color-n-2: #CAC6DD;
+  --color-n-3: #ADA8C3;
+  --color-n-6: #252134;
+  --color-n-7: #1C1826;
+  --color-n-8: #0E0C15;
+  --color-n-11: #1F1B2E;
+  --color-n-13: #15131D;
+  
+  --color-purple-500: #AC6AFF;
+  --color-color-1: #FFC876;
+  --color-color-2: #FF776E;
+  --color-color-3: #7ADB78;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  /* ESTO ARREGLA EL SCROLL EN TODA LA WEB */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* Ajusta este valor según la altura de tu Header */
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    @apply bg-n-8 text-n-1 font-sans antialiased overflow-x-hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* --- ANIMACIONES --- */
+@keyframes hook-drop {
+  0% { transform: translateY(-100vh); }
+  70% { transform: translateY(20px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes hook-sway {
+  0%, 100% { transform: rotate(-2deg) translateY(0); }
+  50% { transform: rotate(2deg) translateY(15px); }
+}
+
+@keyframes react-float {
+  0% { 
+    transform: translateY(0) translateX(0) rotate(0deg) scale(0.4); 
+    opacity: 0; 
+  }
+  10% { opacity: 0.6; }
+  50% { transform: translateY(-75px) translateX(15px) rotate(90deg) scale(0.8); }
+  100% { 
+    transform: translateY(-160px) translateX(-15px) rotate(180deg) scale(1.1); 
+    opacity: 0; 
+  }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fade-in-delayed {
+  0%, 99% { opacity: 0; visibility: hidden; }
+  100% { opacity: 1; visibility: visible; }
+}
+
+.animate-hook-entry {
+  animation: hook-drop 1.5s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards,
+             hook-sway 4s ease-in-out infinite 1.5s;
+}
+
+.react-bubble {
+  @apply absolute pointer-events-none z-0 opacity-0;
+  animation: fade-in-delayed 1.5s forwards, react-float 5s infinite ease-in 1.5s;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.bg-grid {
+  background-size: 100px 100px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* --- CLASES DE HOOKS --- */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+.hook-pill {
+  @apply flex items-center justify-center p-4 bg-n-8 border border-n-1/10 rounded-2xl 
+         font-code text-[15px] text-n-1 font-semibold transition-all duration-300;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.hook-pill:hover {
+  @apply border-purple-500/50 bg-n-7 scale-[1.02];
+  box-shadow: 0 0 20px rgba(172, 106, 255, 0.15);
+}
+
+.hook-pill svg {
+  @apply pointer-events-none;
 }

@@ -1,36 +1,232 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ribeor Learn ⚡
 
-## Getting Started
+> **Aprende React Hooks a profundidad. Entiende el porqué, no solo el cómo.**
 
-First, run the development server:
+**Ribeor Learn** es una plataforma educativa *open source* creada para enseñar React Hooks de forma clara, moderna y profesional — desde los fundamentos hasta React 19.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🌐 Plataforma
+
+**Producción:**
+
+```
+https://learn.ribeor.com
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Repositorio:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+https://github.com/diegoberrio1601/ribeor-learn
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚀 ¿Qué es Ribeor Learn?
 
-To learn more about Next.js, take a look at the following resources:
+Muchos desarrolladores aprenden React memorizando ejemplos sin comprender realmente **qué está ocurriendo internamente**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Ribeor Learn nace con una misión clara:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> Enseñar la intuición real detrás de cada Hook.
 
-## Deploy on Vercel
+Aquí no solo verás *cómo se usa* `useEffect`, sino:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* por qué existe
+* cuándo usarlo
+* cuándo **no** usarlo
+* cómo piensa React internamente
+* cómo escribir código profesional y escalable
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🧠 Contenido
+
+### 🔰 Nivel 1 — Fundamentales
+
+* useState
+* useEffect
+* useContext
+* useRef
+
+### ⚙️ Nivel 2 — Avanzados
+
+* useReducer
+* useLayoutEffect
+* useId
+* useSyncExternalStore
+
+### ⚡ Nivel 3 — Rendimiento
+
+* useMemo
+* useCallback
+* useDeferredValue
+* useTransition
+
+### 🧪 Nivel 4 — React 19
+
+* useActionState
+* useOptimistic
+* Formularios modernos
+* Estados optimistas
+
+---
+
+## 🧩 Filosofía
+
+Ribeor Learn se basa en tres pilares:
+
+* ✅ **Aprendizaje profundo** — no recetas
+* ✅ **Ejemplos reales** — no fragmentos aislados
+* ✅ **Open source** — construido en comunidad
+
+---
+
+## 🛠️ Stack Tecnológico
+
+* **Next.js 14+ (App Router)**
+* **React 19**
+* **TypeScript**
+* **Tailwind CSS**
+* **Lucide Icons**
+
+
+---
+
+## 📂 Estructura del proyecto
+
+```
+.
+├── app/                # App Router
+├── components/         # Componentes UI
+├── sections/           # Secciones principales
+├── lib/                # Utilidades
+├── public/             # Assets
+├── styles/             # Estilos globales
+└── README.md
+```
+
+---
+
+## 🧪 Ejecutar localmente
+
+```bash
+# instalar dependencias
+npm install
+
+# desarrollo
+npm run dev
+
+# build
+npm run build
+
+# producción
+npm start
+```
+
+La aplicación estará disponible en:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 🤝 Contribuir
+
+Las contribuciones son **bienvenidas y alentadas**.
+
+Puedes ayudar de varias formas:
+
+* 🧠 mejorar explicaciones
+* 🧩 agregar nuevos ejemplos
+* 🐛 corregir errores
+* ✨ proponer nuevas ideas
+
+### Flujo recomendado
+
+```bash
+1. Fork del repositorio
+2. Crear una rama
+3. Commit claro
+4. Pull Request
+```
+
+---
+
+## ❤️ Apoyar el proyecto
+
+Si no puedes contribuir con código, puedes apoyar el proyecto:
+
+* ☕ donaciones
+* ⭐ estrella en GitHub
+* 🧵 difusión
+
+Cada aporte ayuda a mantener:
+
+* dominio
+* infraestructura
+* tiempo de desarrollo
+
+---
+
+## 📜 Licencia
+
+Este proyecto está bajo la licencia **MIT**.
+
+Puedes:
+
+* usar
+* modificar
+* distribuir
+* aprender
+
+sin restricciones.
+
+Ver archivo:
+
+```
+LICENSE
+```
+
+---
+
+## ™ Marca
+
+El código es open source.
+
+La marca no.
+
+```
+Ribeor™ es una marca propiedad de Diego Berrio.
+El uso del nombre, logo o identidad visual
+no está permitido sin autorización expresa.
+```
+
+---
+
+## 👤 Autor
+
+**Diego Berrio**
+
+* GitHub: [https://github.com/diegoberrio1601](https://github.com/diegoberrio1601)
+* LinkedIn: [https://linkedin.com/in/diegoberrio1601](https://linkedin.com/in/diegoberrio1601)
+* Instagram: [https://instagram.com/diegoberrio1601](https://instagram.com/diegoberrio1601)
+
+---
+
+## ⭐ Si este proyecto te ayuda
+
+Déjale una estrella ⭐
+
+Eso ayuda muchísimo a que más personas puedan aprender.
+
+---
+
+## ✨ Ribeor
+
+> *Build knowledge. Share value. Learn deeply.*
+
+---
+
+**Made with ❤️ in Colombia.**
