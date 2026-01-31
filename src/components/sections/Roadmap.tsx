@@ -1,3 +1,5 @@
+"use client";
+
 import { Sparkles, Terminal, Code2, ArrowRight } from "lucide-react";
 
 const roadmapData = [
@@ -55,10 +57,10 @@ export const Roadmap = () => {
   return (
     <section
       id="roadmap"
-      className="relative py-20 bg-grid overflow-hidden"
+      className="relative py-20 bg-grid overflow-hidden transition-colors duration-500"
     >
-      {/* Glow ambiental */}
-      <div className="absolute top-0 left-1/4 w-full h-full pointer-events-none opacity-20">
+      {/* Glow ambiental - Ajustado para ser sutil en ambos modos */}
+      <div className="absolute top-0 left-1/4 w-full h-full pointer-events-none opacity-20 dark:opacity-20">
         <div className="absolute top-[-10%] left-[-10%] w-[50rem] h-[50rem] bg-purple-500/20 blur-[150px] rounded-full" />
       </div>
 
@@ -71,7 +73,7 @@ export const Roadmap = () => {
             [ Guía de Aprendizaje ]
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-white">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-n-1 transition-colors">
             Tu ruta para ser <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-color-1 via-purple-500 to-color-2">
               Experto en Hooks
@@ -84,9 +86,9 @@ export const Roadmap = () => {
           {roadmapData.map((item) => (
             <div
               key={item.id}
-              className="group relative p-[1px] rounded-[2.5rem] bg-gradient-to-b from-n-6 to-n-8 even:md:translate-y-[7rem]"
+              className="group relative p-[1px] rounded-[2.5rem] bg-gradient-to-b from-n-6 to-n-8 even:md:translate-y-[7rem] transition-all duration-500"
             >
-              <div className="relative p-8 md:p-14 bg-n-13 rounded-[2.4rem] overflow-hidden flex flex-col border border-transparent group-hover:border-n-1/10 transition-colors duration-500">
+              <div className="relative p-8 md:p-14 bg-n-13 rounded-[2.4rem] overflow-hidden flex flex-col border border-transparent group-hover:border-n-1/10 transition-all duration-500">
 
                 <div className="relative z-1 w-full">
 
@@ -105,7 +107,7 @@ export const Roadmap = () => {
                   </div>
 
                   {/* Contenido */}
-                  <h3 className="text-3xl md:text-4xl font-bold mb-5 text-white">
+                  <h3 className="text-3xl md:text-4xl font-bold mb-5 text-n-1 transition-colors">
                     {item.title}
                   </h3>
 
@@ -118,7 +120,7 @@ export const Roadmap = () => {
                     {item.hooks.map((hook, index) => (
                       <div
                         key={index}
-                        className="flex items-center px-4 py-3 bg-n-8 border border-n-1/10 rounded-xl font-code text-[13px] text-n-2 hover:border-purple-500/40 hover:text-white transition-all"
+                        className="flex items-center px-4 py-3 bg-n-8 border border-n-1/10 rounded-xl font-code text-[13px] text-n-2 hover:border-purple-500/40 hover:text-n-1 transition-all"
                       >
                         <Code2
                           size={14}
@@ -140,7 +142,7 @@ export const Roadmap = () => {
           <button className="relative group p-[1.5px] rounded-xl overflow-hidden shadow-2xl transition-transform hover:scale-105 active:scale-95">
             <div className="absolute inset-0 bg-gradient-to-r from-color-1 via-purple-500 to-color-2" />
             <div className="relative px-12 py-4 bg-n-13 rounded-[11px] group-hover:bg-transparent transition-all duration-300">
-              <span className="flex items-center font-code text-sm font-bold uppercase tracking-[0.25em] text-white">
+              <span className="flex items-center font-code text-sm font-bold uppercase tracking-[0.25em] text-n-1 group-hover:text-white transition-colors">
                 Comenzar ahora
                 <ArrowRight
                   size={18}

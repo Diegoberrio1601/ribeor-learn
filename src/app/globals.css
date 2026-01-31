@@ -4,14 +4,15 @@
   --font-sans: var(--font-sora), ui-sans-serif, system-ui;
   --font-code: var(--font-code), monospace;
 
-  --color-n-1: #FFFFFF;
-  --color-n-2: #CAC6DD;
-  --color-n-3: #ADA8C3;
-  --color-n-6: #252134;
-  --color-n-7: #1C1826;
-  --color-n-8: #0E0C15;
-  --color-n-11: #1F1B2E;
-  --color-n-13: #15131D;
+  /* Definimos los colores vinculándolos directamente a variables CSS dinámicas */
+  --color-n-1: var(--n-1);
+  --color-n-2: var(--n-2);
+  --color-n-3: var(--n-3);
+  --color-n-6: var(--n-6);
+  --color-n-7: var(--n-7);
+  --color-n-8: var(--n-8);
+  --color-n-11: var(--n-11);
+  --color-n-13: var(--n-13);
   
   --color-purple-500: #AC6AFF;
   --color-color-1: #FFC876;
@@ -20,14 +21,40 @@
 }
 
 @layer base {
-  /* ESTO ARREGLA EL SCROLL EN TODA LA WEB */
+  /* MODO CLARO */
+  :root {
+    --n-1: #0E0C15;
+    --n-2: #3F3A52;
+    --n-3: #6C6685;
+    --n-6: #E2E0EB;
+    --n-7: #F4F4F9;
+    --n-8: #FFFFFF;
+    --n-11: #EBEBF5;
+    --n-13: #F9F9FF;
+    --grid-color: rgba(0, 0, 0, 0.05);
+  }
+
+  /* MODO OSCURO */
+  .dark {
+    --n-1: #FFFFFF;
+    --n-2: #CAC6DD;
+    --n-3: #ADA8C3;
+    --n-6: #252134;
+    --n-7: #1C1826;
+    --n-8: #0E0C15;
+    --n-11: #1F1B2E;
+    --n-13: #15131D;
+    --grid-color: rgba(255, 255, 255, 0.02);
+  }
+
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem; /* Ajusta este valor según la altura de tu Header */
+    scroll-padding-top: 5rem;
   }
 
   body {
-    @apply bg-n-8 text-n-1 font-sans antialiased overflow-x-hidden;
+    /* bg-n-8 y text-n-1 ahora usarán las variables de arriba automáticamente */
+    @apply bg-n-8 text-n-1 font-sans antialiased overflow-x-hidden transition-colors duration-300;
   }
 }
 
@@ -83,8 +110,8 @@
 .bg-grid {
   background-size: 100px 100px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
 }
 
 /* --- CLASES DE HOOKS --- */

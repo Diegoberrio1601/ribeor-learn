@@ -1,3 +1,5 @@
+"use client";
+
 import { Instagram, Github, Linkedin, Terminal } from "lucide-react";
 
 export const Footer = () => {
@@ -31,14 +33,14 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="relative border-t border-n-6 bg-n-8 py-12 lg:py-16">
-      <div className="container mx-auto px-6 lg:px-10">
+    <footer className="relative border-t border-n-1/10 bg-n-8 py-12 lg:py-16 transition-colors duration-500">
+      <div className="container mx-auto px-6 lg:px-10 relative z-2">
 
-        {/* TOP */}
+        {/* TOP: Logo y Navegación */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 mb-12">
 
-          <div className="flex items-center gap-4">
-            <div className="w-10 h-10 bg-n-7 border border-n-1/10 rounded-xl flex items-center justify-center">
+          <div className="flex items-center gap-4 group">
+            <div className="w-10 h-10 bg-n-7 border border-n-1/10 rounded-xl flex items-center justify-center transition-colors group-hover:border-purple-500/50">
               <Terminal size={20} className="text-purple-500" />
             </div>
 
@@ -53,7 +55,7 @@ export const Footer = () => {
               <a
                 key={item.title}
                 href={item.url}
-                className="font-code text-xs uppercase tracking-widest text-n-3 hover:text-white transition-colors"
+                className="font-code text-xs uppercase tracking-widest text-n-3 hover:text-n-1 transition-colors"
               >
                 {item.title}
               </a>
@@ -61,15 +63,25 @@ export const Footer = () => {
           </nav>
         </div>
 
-        <div className="h-px w-full bg-n-6/50 mb-10" />
+        {/* Línea divisoria */}
+        <div className="h-px w-full bg-n-1/10 mb-10" />
 
-        {/* BOTTOM */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* BOTTOM: Copyright y Redes */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
 
-          <p className="font-code text-[11px] text-n-4 uppercase tracking-wider text-center md:text-left">
-            © {currentYear} Diego Berrio. Proyecto open source bajo licencia MIT.
-            El código es libre; la marca Ribeor™ pertenece a su autor.
-          </p>
+          <div className="flex flex-col gap-4 md:max-w-[60%]">
+            <p className="font-code text-[11px] text-n-4 uppercase tracking-wider text-center md:text-left leading-relaxed">
+              © {currentYear} 
+              <span className="inline-flex items-center mx-2 font-bold tracking-tighter text-n-1">
+                 RIBEOR
+                <span className="text-purple-500 ml-1">LEARN</span>
+              </span>
+              — Proyecto de código abierto bajo licencia MIT.
+            </p>
+            <p className="font-code text-[10px] text-n-4/60 uppercase tracking-widest text-center md:text-left">
+              El código es libre; la marca Ribeor™ pertenece a su autor.
+            </p>
+          </div>
 
           <ul className="flex gap-4">
             {socials.map((item) => (
@@ -79,7 +91,7 @@ export const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={item.title}
-                className="flex items-center justify-center w-10 h-10 bg-n-13 rounded-full border border-n-6 text-n-3 hover:text-white hover:border-purple-500 transition-all"
+                className="flex items-center justify-center w-10 h-10 bg-n-13 rounded-full border border-n-1/10 text-n-3 hover:text-n-1 hover:border-purple-500 transition-all shadow-sm"
               >
                 {item.icon}
               </a>
