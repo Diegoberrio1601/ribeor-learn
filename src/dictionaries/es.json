@@ -1,0 +1,123 @@
+{
+  "header": {
+    "navigation": {
+      "roadmap": "RUTA DE APRENDIZAJE",
+      "about": "SOBRE EL AUTOR",
+      "pricing": "APOYAR EL PROYECTO"
+    },
+    "buttons": {
+      "login": "Ingresar",
+      "register": "Registrarse"
+    }
+  },
+  "hero": {
+    "title": "Aprende cómo funcionan realmente los",
+    "titleAccent": "React Hooks",
+    "description": "Comprende el estado, los efectos y el ciclo de render de React. Aprende a escribir lógica predecible, escalable y fácil de mantener.",
+    "button": "Ver roadmap"
+  },
+  "roadmap": {
+    "tag": "Guía de Aprendizaje",
+    "title": "Tu ruta para ser",
+    "titleAccent": "Experto en Hooks",
+    "cta": "Comenzar ahora",
+    "items": [
+      {
+        "id": "0",
+        "level": "NIVEL 1",
+        "title": "Fundamentales",
+        "text": "Domina la base esencial de React. Estos Hooks son el 90% de lo que usarás en el día a día para gestionar estado y ciclos de vida.",
+        "hooks": ["useState", "useEffect", "useContext", "useRef"]
+      },
+      {
+        "id": "1",
+        "level": "NIVEL 2",
+        "title": "Avanzados",
+        "text": "Lleva tu lógica a otro nivel. Aprende a manejar estados complejos, referencias imperativas y sincronización externa.",
+        "hooks": [
+          "useLayoutEffect",
+          "useId",
+          "useReducer",
+          "useImperativeHandle",
+          "useSyncExternalStore"
+        ]
+      },
+      {
+        "id": "2",
+        "level": "NIVEL 3",
+        "title": "Rendimiento",
+        "text": "Evita re-renders innecesarios y mejora la experiencia con renderizado prioritario y memorización inteligente.",
+        "hooks": ["useMemo", "useCallback", "useDeferredValue", "useTransition"]
+      },
+      {
+        "id": "3",
+        "level": "NIVEL 4",
+        "title": "Moderno / React 19",
+        "text": "La vanguardia del desarrollo. Domina las nuevas APIs de formularios y estados optimistas de la nueva era.",
+        "hooks": ["useActionState", "useOptimistic"],
+        "badge": "NUEVO"
+      }
+    ]
+  },
+  "about": {
+    "tag": "El Creador",
+    "greeting": "Hola, soy",
+    "name": "Diego Berrio",
+    "paragraphs": [
+      "Pasé muchas noches intentando entender por qué un useEffect entra en bucle infinito, por qué el estado no se actualizaba como esperaba o por qué React parecía hacer 'lo que quería'.",
+      "Esta plataforma nació de esa frustración. No para memorizar Hooks, sino para entender qué está pasando realmente en cada render.",
+      "Mi objetivo es ayudarte a construir esa intuición que normalmente solo llega después de muchos errores."
+    ],
+    "focus": {
+      "philosophyTag": "Filosofía",
+      "philosophyTitle": "Código abierto",
+      "approachTag": "Enfoque",
+      "approachTitle": "React moderno"
+    }
+  },
+  "pricing": {
+    "tag": "Comunidad & Open Source",
+    "title": "Gratis para aprender.",
+    "titleLine2": "Abierto para",
+    "titleAccent": "contribuir.",
+    "description": "Si la plataforma te resulta útil, puedes apoyarla de dos maneras: contribuyendo con código o ayudando con dólares a cubrir los costos básicos.",
+    "footer": "Unidos por un ecosistema de React más fuerte",
+    "cards": [
+      {
+        "id": "0",
+        "title": "Contribuye con código",
+        "description": "Ayuda a mejorar la plataforma participando directamente en el desarrollo open source.",
+        "action": "Ver repositorio en GitHub",
+        "url": "https://github.com/diegoberrio1601",
+        "highlight": false,
+        "features": [
+          "Mejora o crea nuevos ejemplos de Hooks.",
+          "Corrige errores o propone refactors.",
+          "Aporta ideas de contenido y documentación."
+        ]
+      },
+      {
+        "id": "1",
+        "title": "Apoya el proyecto",
+        "description": "Si no puedes contribuir con código, una donación ayuda a mantener servidores y herramientas.",
+        "action": "Donar dólares vía PayPal",
+        "url": "https://www.paypal.me/",
+        "highlight": true,
+        "features": [
+          "Ayuda a mantener el proyecto en línea.",
+          "Financia nuevos laboratorios interactivos.",
+          "Apoyo mediante dólares para el desarrollo continuo."
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "navigation": {
+      "roadmap": "RUTA DE APRENDIZAJE",
+      "about": "SOBRE EL AUTOR",
+      "pricing": "APOYAR EL PROYECTO"
+    },
+    "legal": "Proyecto de código abierto bajo licencia MIT.",
+    "brand": "El código es libre; la marca Ribeor™ pertenece a su autor."
+  }
+}

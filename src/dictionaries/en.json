@@ -1,0 +1,123 @@
+{
+  "header": {
+    "navigation": {
+      "roadmap": "LEARNING ROADMAP",
+      "about": "ABOUT THE AUTHOR",
+      "pricing": "SUPPORT PROJECT"
+    },
+    "buttons": {
+      "login": "Login",
+      "register": "Sign Up"
+    }
+  },
+  "hero": {
+    "title": "Learn how they really work",
+    "titleAccent": "React Hooks",
+    "description": "Understand React state, effects, and the render cycle. Learn to write predictable, scalable, and maintainable logic.",
+    "button": "View Roadmap"
+  },
+  "roadmap": {
+    "tag": "Learning Guide",
+    "title": "Your path to becoming a",
+    "titleAccent": "Hooks Expert",
+    "cta": "Start now",
+    "items": [
+      {
+        "id": "0",
+        "level": "LEVEL 1",
+        "title": "Fundamentals",
+        "text": "Master the essential React base. These Hooks are 90% of what you will use daily to manage state and life cycles.",
+        "hooks": ["useState", "useEffect", "useContext", "useRef"]
+      },
+      {
+        "id": "1",
+        "level": "LEVEL 2",
+        "title": "Advanced",
+        "text": "Take your logic to another level. Learn to handle complex states, imperative references, and external synchronization.",
+        "hooks": [
+          "useLayoutEffect",
+          "useId",
+          "useReducer",
+          "useImperativeHandle",
+          "useSyncExternalStore"
+        ]
+      },
+      {
+        "id": "2",
+        "level": "LEVEL 3",
+        "title": "Performance",
+        "text": "Avoid unnecessary re-renders and improve experience with priority rendering and smart memoization.",
+        "hooks": ["useMemo", "useCallback", "useDeferredValue", "useTransition"]
+      },
+      {
+        "id": "3",
+        "level": "LEVEL 4",
+        "title": "Modern / React 19",
+        "text": "The cutting edge of development. Master the new form APIs and optimistic states of the new era.",
+        "hooks": ["useActionState", "useOptimistic"],
+        "badge": "NEW"
+      }
+    ]
+  },
+    "about": {
+    "tag": "The Creator",
+    "greeting": "Hi, I am",
+    "name": "Diego Berrio",
+    "paragraphs": [
+      "I spent many nights trying to understand why a useEffect would enter an infinite loop, why the state wouldn't update as expected, or why React seemed to do 'whatever it wanted'.",
+      "This platform was born from that frustration. Not to memorize Hooks, but to understand what is actually happening in every render.",
+      "My goal is to help you build that intuition that usually only comes after many mistakes."
+    ],
+    "focus": {
+      "philosophyTag": "Philosophy",
+      "philosophyTitle": "Open Source",
+      "approachTag": "Approach",
+      "approachTitle": "Modern React"
+    }
+  },
+  "pricing": {
+    "tag": "Community & Open Source",
+    "title": "Free to learn.",
+    "titleLine2": "Open to",
+    "titleAccent": "contribute.",
+    "description": "If you find the platform useful, you can support it in two ways: by contributing code or by helping with dollars to cover basic costs.",
+    "footer": "United for a stronger React ecosystem",
+    "cards": [
+      {
+        "id": "0",
+        "title": "Contribute code",
+        "description": "Help improve the platform by participating directly in open source development.",
+        "action": "View GitHub repository",
+        "url": "https://github.com/diegoberrio1601",
+        "highlight": false,
+        "features": [
+          "Improve or create new Hook examples.",
+          "Fix bugs or suggest refactors.",
+          "Contribute content and documentation ideas."
+        ]
+      },
+      {
+        "id": "1",
+        "title": "Support project",
+        "description": "If you cannot contribute code, a donation helps maintain servers and tools.",
+        "action": "Donate dollars via PayPal",
+        "url": "https://www.paypal.me/",
+        "highlight": true,
+        "features": [
+          "Helps keep the project online.",
+          "Funds new interactive labs.",
+          "Support through dollars for continuous development."
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "navigation": {
+      "roadmap": "LEARNING ROADMAP",
+      "about": "ABOUT THE AUTHOR",
+      "pricing": "SUPPORT PROJECT"
+    },
+    "legal": "Open source project under MIT license.",
+    "brand": "The code is free; the Ribeor™ brand belongs to its author."
+  }
+}

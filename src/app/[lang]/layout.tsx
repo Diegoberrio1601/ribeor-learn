@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, Source_Code_Pro } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-import "./globals.css";
-
-/* ================================
-   Fonts
-================================ */
+import "../globals.css";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -19,10 +15,6 @@ const code = Source_Code_Pro({
   variable: "--font-code",
   display: "swap",
 });
-
-/* ================================
-   SEO Metadata — Ribeor Learn
-================================ */
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://learn.ribeor.com"),
@@ -75,13 +67,21 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
-export default function RootLayout({
+export async function generateStaticParams() {
+  return [{ lang: "es" }, { lang: "en" }];
+}
+
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ lang: string }>;
 }) {
+  const { lang } = await params;
+
   return (
-    <html lang="es" suppressHydrationWarning className="scroll-smooth">
+    <html lang={lang} suppressHydrationWarning className="scroll-smooth">
       <body
         className={`
           ${sora.variable}
@@ -95,7 +95,12 @@ export default function RootLayout({
           transition-colors duration-300
         `}
       >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
           {children}
         </ThemeProvider>
       </body>

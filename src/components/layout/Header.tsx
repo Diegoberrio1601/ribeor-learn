@@ -2,23 +2,42 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import {
   Menu,
   X,
   LogIn,
+  UserPlus,
   Instagram,
   Github,
   Linkedin,
   Terminal,
   Sun,
   Moon,
+  Languages,
 } from "lucide-react";
 
-export const Header = () => {
+interface HeaderProps {
+  dict: {
+    navigation: {
+      roadmap: string;
+      about: string;
+      pricing: string;
+    };
+    buttons: {
+      login: string;
+      register: string;
+    };
+  };
+  lang: string;
+}
+
+export const Header = ({ dict, lang }: HeaderProps) => {
   const [openNavigation, setOpenNavigation] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -28,14 +47,15 @@ export const Header = () => {
   }, []);
 
   const toggleNavigation = () => setOpenNavigation(!openNavigation);
-  const handleClick = () => {
-    if (openNavigation) setOpenNavigation(false);
-  };
+  
+  const currentLang = lang;
+  const targetLang = currentLang === "es" ? "en" : "es";
+  const targetPath = pathname.replace(`/${currentLang}`, `/${targetLang}`);
 
   const navigation = [
-    { title: "RUTA DE APRENDIZAJE", url: "#roadmap" },
-    { title: "SOBRE EL AUTOR", url: "#about" },
-    { title: "APOYAR EL PROYECTO", url: "#pricing" },
+    { title: dict.navigation.roadmap, url: "#roadmap" },
+    { title: dict.navigation.about, url: "#about" },
+    { title: dict.navigation.pricing, url: "#pricing" },
   ];
 
   const socials = [
@@ -58,35 +78,47 @@ export const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 w-full z-50 border-b border-n-1/10 transition-colors duration-500 ${openNavigation ? "bg-n-8" : "bg-n-8/80 backdrop-blur-sm"}`}>
-      <div className="flex items-center px-5 lg:px-7.5 xl:px-10 py-4">
+      <div className="flex items-center px-5 xl:px-10 py-4">
 
-        {/* LOGO */}
-        <Link href="/" className="flex items-center gap-4 group xl:mr-8">
+        {/* LOGO - whitespace-nowrap para evitar que el nombre se parta */}
+        <Link href={`/${lang}`} className="flex items-center gap-4 group mr-4 xl:mr-8 shrink-0">
           <div className="w-10 h-10 bg-n-7 border border-n-1/10 rounded-xl flex items-center justify-center group-hover:border-purple-500 transition-colors">
             <Terminal size={20} className="text-purple-500" />
           </div>
-          <span className="text-2xl font-bold uppercase tracking-tighter text-n-1">
+          <span className="text-2xl font-bold uppercase tracking-tighter text-n-1 whitespace-nowrap">
             RIBEOR
             <span className="text-purple-500 ml-1">LEARN</span>
           </span>
         </Link>
 
-        {/* NAV */}
-        <nav className={`${openNavigation ? "flex" : "hidden"} fixed top-[5rem] left-0 right-0 bottom-0 bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent`}>
-          <div className="relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row">
+        {/* NAV - Subido breakpoint a XL para evitar colisión de textos */}
+        <nav className={`${openNavigation ? "flex" : "hidden"} fixed top-[5rem] left-0 right-0 bottom-0 bg-n-8 xl:static xl:flex xl:mx-auto xl:bg-transparent`}>
+          <div className="relative z-2 flex flex-col items-center justify-center m-auto xl:flex-row">
             {navigation.map((item) => (
               <Link
                 key={item.title}
                 href={item.url}
-                onClick={handleClick}
-                className="block font-code text-xs uppercase text-n-1 px-6 py-6 md:py-8 transition-colors hover:text-purple-500 lg:text-n-1/60 lg:hover:text-n-1"
+                onClick={() => setOpenNavigation(false)}
+                className="block font-code text-xs uppercase text-n-1 px-6 py-6 md:py-8 transition-colors hover:text-purple-500 xl:text-n-1/60 xl:hover:text-n-1 whitespace-nowrap"
               >
                 {item.title}
               </Link>
             ))}
 
+            {/* BOTONES (Solo Móvil) */}
+            <div className="flex flex-col gap-4 w-full px-6 mt-4 xl:hidden">
+              <button className="inline-flex items-center justify-center px-6 py-3 border border-n-1/10 rounded-xl font-code text-xs font-bold uppercase tracking-widest text-n-1">
+                <LogIn size={14} className="mr-2 text-purple-500" />
+                {dict.buttons.login}
+              </button>
+              <button className="inline-flex items-center justify-center px-6 py-3 bg-n-1 text-n-8 rounded-xl font-code text-xs font-bold uppercase tracking-widest transition-all">
+                <UserPlus size={14} className="mr-2" />
+                {dict.buttons.register}
+              </button>
+            </div>
+
             {/* REDES SOCIALES (Solo Móvil) */}
-            <div className="flex gap-6 mt-10 lg:hidden">
+            <div className="flex gap-6 mt-10 xl:hidden">
               {socials.map((social) => (
                 <a
                   key={social.title}
@@ -103,8 +135,18 @@ export const Header = () => {
         </nav>
 
         {/* ACTIONS & THEME TOGGLE */}
-        <div className="flex items-center ml-auto lg:ml-0 gap-2 md:gap-4">
+        <div className="flex items-center ml-auto xl:ml-0 gap-2 md:gap-3 shrink-0">
           
+          <a
+            href={targetPath}
+            className="flex items-center gap-2 px-3 h-10 border border-n-1/10 rounded-xl text-n-1 font-code text-[10px] uppercase tracking-widest hover:bg-n-7 transition-colors"
+          >
+            <Languages size={18} className="text-purple-500" />
+            <span className="hidden sm:block">
+              {currentLang === "es" ? "EN" : "ES"}
+            </span>
+          </a>
+
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="w-10 h-10 flex items-center justify-center border border-n-1/10 rounded-xl text-purple-500 hover:bg-n-7 transition-colors"
@@ -117,14 +159,19 @@ export const Header = () => {
             )}
           </button>
 
-          <div className="hidden lg:flex items-center gap-6">
-             <button className="inline-flex items-center px-6 py-2 border border-n-1/10 rounded-xl font-code text-xs font-bold uppercase tracking-widest text-n-1 hover:bg-n-7 transition-all">
+          {/* BOTONES (Desktop) - Ahora aparecen solo desde XL para no chocar */}
+          <div className="hidden xl:flex items-center gap-3">
+             <button className="inline-flex items-center px-4 py-2 border border-n-1/10 rounded-xl font-code text-[11px] font-bold uppercase tracking-widest text-n-1 hover:bg-n-7 transition-all whitespace-nowrap">
               <LogIn size={14} className="mr-2 text-purple-500" />
-              Ingresar
+              {dict.buttons.login}
+            </button>
+            <button className="inline-flex items-center px-4 py-2 bg-n-1 text-n-8 rounded-xl font-code text-[11px] font-bold uppercase tracking-widest hover:bg-purple-500 hover:text-white transition-all whitespace-nowrap">
+              <UserPlus size={14} className="mr-2" />
+              {dict.buttons.register}
             </button>
           </div>
 
-          <button className="lg:hidden text-n-1 ml-2" onClick={toggleNavigation}>
+          <button className="xl:hidden text-n-1 ml-2" onClick={toggleNavigation}>
             {openNavigation ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>

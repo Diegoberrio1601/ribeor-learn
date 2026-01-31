@@ -2,7 +2,19 @@
 
 import { Instagram, Github, Linkedin, Terminal } from "lucide-react";
 
-export const Footer = () => {
+interface FooterProps {
+  dict: {
+    navigation: {
+      roadmap: string;
+      about: string;
+      pricing: string;
+    };
+    legal: string;
+    brand: string;
+  };
+}
+
+export const Footer = ({ dict }: FooterProps) => {
   const currentYear = new Date().getFullYear();
 
   const socials = [
@@ -27,9 +39,9 @@ export const Footer = () => {
   ];
 
   const footerNav = [
-    { title: "Ruta de Aprendizaje", url: "#roadmap" },
-    { title: "Sobre el Autor", url: "#about" },
-    { title: "Apoyar el Proyecto", url: "#pricing" },
+    { title: dict.navigation.roadmap, url: "#roadmap" },
+    { title: dict.navigation.about, url: "#about" },
+    { title: dict.navigation.pricing, url: "#pricing" },
   ];
 
   return (
@@ -76,10 +88,10 @@ export const Footer = () => {
                  RIBEOR
                 <span className="text-purple-500 ml-1">LEARN</span>
               </span>
-              — Proyecto de código abierto bajo licencia MIT.
+              — {dict.legal}
             </p>
             <p className="font-code text-[10px] text-n-4/60 uppercase tracking-widest text-center md:text-left">
-              El código es libre; la marca Ribeor™ pertenece a su autor.
+              {dict.brand}
             </p>
           </div>
 

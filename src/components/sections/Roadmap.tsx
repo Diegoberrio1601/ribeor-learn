@@ -2,64 +2,32 @@
 
 import { Sparkles, Terminal, Code2, ArrowRight } from "lucide-react";
 
-const roadmapData = [
-  { 
-    id: "0", 
-    level: "NIVEL 1",
-    title: "Fundamentales", 
-    text: "Domina la base esencial de React. Estos Hooks son el 90% de lo que usarás en el día a día para gestionar estado y ciclos de vida.", 
-    hooks: [
-      "useState",
-      "useEffect",
-      "useContext",
-      "useRef",
-    ],
-  },
-  { 
-    id: "1", 
-    level: "NIVEL 2",
-    title: "Avanzados", 
-    text: "Lleva tu lógica a otro nivel. Aprende a manejar estados complejos, referencias imperativas y sincronización externa.", 
-    hooks: [
-      "useLayoutEffect",
-      "useId",
-      "useReducer",
-      "useImperativeHandle",
-      "useSyncExternalStore",
-    ],
-  },
-  { 
-    id: "2", 
-    level: "NIVEL 3",
-    title: "Rendimiento", 
-    text: "Evita re-renders innecesarios y mejora la experiencia con renderizado prioritario y memorización inteligente.", 
-    hooks: [
-      "useMemo",
-      "useCallback",
-      "useDeferredValue",
-      "useTransition",
-    ],
-  },
-  { 
-    id: "3", 
-    level: "NIVEL 4",
-    title: "Moderno / React 19", 
-    text: "La vanguardia del desarrollo. Domina las nuevas APIs de formularios y estados optimistas de la nueva era.", 
-    hooks: [
-      "useActionState",
-      "useOptimistic",
-    ],
-    badge: "NUEVO",
-  },
-];
+interface RoadmapItem {
+  id: string;
+  level: string;
+  title: string;
+  text: string;
+  hooks: string[];
+  badge?: string;
+}
 
-export const Roadmap = () => {
+interface RoadmapProps {
+  dict: {
+    tag: string;
+    title: string;
+    titleAccent: string;
+    items: RoadmapItem[];
+    cta: string;
+  };
+}
+
+export const Roadmap = ({ dict }: RoadmapProps) => {
   return (
     <section
       id="roadmap"
       className="relative py-20 bg-grid overflow-hidden transition-colors duration-500"
     >
-      {/* Glow ambiental - Ajustado para ser sutil en ambos modos */}
+      {/* Glow ambiental */}
       <div className="absolute top-0 left-1/4 w-full h-full pointer-events-none opacity-20 dark:opacity-20">
         <div className="absolute top-[-10%] left-[-10%] w-[50rem] h-[50rem] bg-purple-500/20 blur-[150px] rounded-full" />
       </div>
@@ -70,20 +38,20 @@ export const Roadmap = () => {
         <div className="text-center max-w-[50rem] mx-auto mb-20">
           <div className="inline-flex items-center px-4 py-1.5 mb-6 border border-n-1/10 rounded-full font-code text-xs uppercase tracking-widest text-n-3 bg-n-8/50">
             <Terminal size={14} className="mr-2 text-purple-500" />
-            [ Guía de Aprendizaje ]
+            [{dict.tag}]
           </div>
 
           <h2 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-n-1 transition-colors">
-            Tu ruta para ser <br />
+            {dict.title} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-color-1 via-purple-500 to-color-2">
-              Experto en Hooks
+              {dict.titleAccent}
             </span>
           </h2>
         </div>
 
         {/* Grid de tarjetas */}
         <div className="relative grid gap-10 md:grid-cols-2 md:gap-x-12 md:pb-[7rem]">
-          {roadmapData.map((item) => (
+          {dict.items.map((item) => (
             <div
               key={item.id}
               className="group relative p-[1px] rounded-[2.5rem] bg-gradient-to-b from-n-6 to-n-8 even:md:translate-y-[7rem] transition-all duration-500"
@@ -143,7 +111,7 @@ export const Roadmap = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-color-1 via-purple-500 to-color-2" />
             <div className="relative px-12 py-4 bg-n-13 rounded-[11px] group-hover:bg-transparent transition-all duration-300">
               <span className="flex items-center font-code text-sm font-bold uppercase tracking-[0.25em] text-n-1 group-hover:text-white transition-colors">
-                Comenzar ahora
+                {dict.cta}
                 <ArrowRight
                   size={18}
                   className="ml-3 group-hover:translate-x-1 transition-transform"
