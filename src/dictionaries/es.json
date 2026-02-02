@@ -1,4 +1,10 @@
 {
+  "auth": {
+    "title": "Bienvenido",
+    "subtitle": "Elige tu método",
+    "googleBtn": "Continuar con Google",
+    "githubBtn": "Continuar con GitHub"
+  },
   "header": {
     "navigation": {
       "roadmap": "RUTA DE APRENDIZAJE",

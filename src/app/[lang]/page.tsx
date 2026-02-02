@@ -13,10 +13,11 @@ export default async function Home({
 }) {
   const { lang } = await params;
   const dict = await getDictionary(lang);
+  
 
   return (
     <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
-      <Header dict={dict.header} lang={lang} key={lang} />
+      <Header dict={dict} lang={lang} key={lang} />
       <main>
         <Hero dict={dict.hero} />
         <Roadmap dict={dict.roadmap} />
